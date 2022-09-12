@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "connebts"
+name = "comments"
 version = "0.1.0"
 description = ""
 authors = ["Grivtsov_e"]
