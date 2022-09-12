@@ -1,0 +1,39 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/code
+    working_dir: /code/
+    depends_on:
+      - pg
+    environment:
+      - DB_URL=postgresql://postgres:dbpass@pg:5432/db
+    command: python manage.py runserver
+    networks:
+      - service-network
+
+  pg:
+    image: postgres:10-alpine
+    environment:
+      - POSTGRES_DB=db
+      - POSTGRES_PASSWORD=dbpass
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 2s
+      timeout: 1s
+      retries: 10
+    ports:
+      - "15432:5432"
+    logging:
+      driver: none
+    networks:
+      - service-network
+
+networks:
+  service-network:
+    driver: bridge
