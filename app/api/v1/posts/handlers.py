@@ -60,7 +60,7 @@ async def update_post(
     post: UpdatePost,
     post_id: int,
     session: AsyncSession = Depends(get_session),
-    # auth=Depends(AuthToken()),
+    auth=Depends(AuthToken()),
 ):
     """
     Изменить пост
@@ -74,7 +74,7 @@ async def update_post(
 async def delete_post(
     post_id: int,
     session: AsyncSession = Depends(get_session),
-    # auth=Depends(AuthToken()),
+    auth=Depends(AuthToken()),
 ):
     """
     Удалить пост
