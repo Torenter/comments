@@ -61,13 +61,3 @@ exclude = '''
     )/
 )
 '''
-
-[[tool.poetry.source]]
-name = "pypi-proxy"
-url = "https://nxsdct.tass.ru/repository/tass-pypi-proxy/simple"
-default = true
-
-[[tool.poetry.source]]
-name = "tasslib"
-url = "https://tass_pypi:PAxLCUVAYWhJzZKGfycM@gitlab.corp.tass.ru/api/v4/projects/146/packages/pypi/simple"
-secondary = true
