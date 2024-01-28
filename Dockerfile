@@ -4,6 +4,8 @@ ENV BUILD_DEPS="wget gcc build-essential"
 RUN apt-get update \
     && apt-get install -y --no-install-recommends $BUILD_DEPS
 
+ENV POETRY_VERSION=1.7.1
+RUN pip install "poetry==$POETRY_VERSION"
 
 # Project initialization:
 WORKDIR /code
